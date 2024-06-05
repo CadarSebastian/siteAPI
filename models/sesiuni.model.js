@@ -6,7 +6,7 @@ export const Sesiuni = sequelize.define(
   "Sesiuni",
   {
     date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     time: {
@@ -21,5 +21,5 @@ export const Sesiuni = sequelize.define(
   }
 );
 
-// Sesiuni.hasMany(Copii);
-// Copii.belongsTo(Sesiuni);
+Sesiuni.hasMany(Copii);
+Copii.belongsTo(Sesiuni);

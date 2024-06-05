@@ -21,5 +21,5 @@ export const Copii = sequelize.define(
   }
 );
 
-Copii.hasOne(Sesiuni);
-Sesiuni.belongsTo(Copii);
+// Copii.hasOne(Sesiuni);
+//Sesiuni.hasMany(Copii);
