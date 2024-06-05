@@ -19,6 +19,10 @@ Content-Type: application/json
 {
     "sesiuneId":1
 }
+###
+#
+GET http://localhost:3000/sesiuni
+Content-Type: application/json
 
 
 
