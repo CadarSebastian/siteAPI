@@ -1,0 +1,48 @@
+services:
+  app:
+    build: .docker
+    stdin_open: true
+    tty: true
+    container_name: app.siteAPI
+    environment:
+      NODE_ENV: development
+      CHOKIDAR_USEPOLLING: true
+      CHOKIDAR_INTERVAL: 100
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+    volumes:
+      - .:/app
+      # exclude
+      - /app/.git/
+    working_dir: /app
+    user: 1000:1000
+
+  mysql:
+    image: mysql:8.0.27
+    container_name: mysql.roboti
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: roboti
+      MYSQL_USER: roboti
+      MYSQL_PASSWORD: roboti
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:5.2.0
+    container_name: pma.roboti
+    ports:
+      - "4577:80"
+    environment:
+      PMA_HOST: mysql.roboti
+      PMA_USER: roboti
+      PMA_PASSWORD: roboti
+      UPLOAD_LIMIT: 250M
+
+volumes:
+  mysql_data:
+    driver: local
