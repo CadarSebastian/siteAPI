@@ -1,6 +1,7 @@
 import {
   createSesiuni,
   deleteOneSesiune,
+  getAllSesiuni,
 } from "../services/sesiuni.services.js";
 
 export async function addNewSesiuni(req, res) {
@@ -29,4 +30,9 @@ export async function deleteSesiune(req, res) {
   await deleteOneSesiune(sesiuneId);
 
   res.send("Deleted");
+}
+export async function getSesiuni(req, res) {
+  const dbSesiuni = await getAllSesiuni();
+
+  res.send(JSON.stringify(dbSesiuni));
 }

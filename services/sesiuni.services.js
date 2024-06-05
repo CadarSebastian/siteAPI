@@ -13,3 +13,8 @@ export async function deleteOneSesiune(sesiuneId) {
     },
   });
 }
+export async function getAllSesiuni() {
+  return await Sesiuni.findAll({
+    attributes: ["id", "date", "time"],
+  });
+}
