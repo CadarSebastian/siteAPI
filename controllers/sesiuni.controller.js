@@ -2,6 +2,7 @@ import {
   createSesiuni,
   deleteOneSesiune,
   getAllSesiuni,
+  editOneSesiune,
 } from "../services/sesiuni.services.js";
 
 export async function addNewSesiuni(req, res) {
@@ -35,4 +36,12 @@ export async function getSesiuni(req, res) {
   const dbSesiuni = await getAllSesiuni();
 
   res.send(JSON.stringify(dbSesiuni));
+}
+
+export async function editSesiune(req, res) {
+  const { sesiuneId, value } = req.body;
+
+  await editOneSesiune(sesiuneId, value);
+
+  res.send("Edited");
 }

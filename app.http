@@ -23,7 +23,15 @@ Content-Type: application/json
 #
 GET http://localhost:3000/sesiuni
 Content-Type: application/json
+###
+#
+PUT  http://localhost:3000/sesiuni
+Content-Type: application/json
 
+{
+    "sesiuneId":1,
+    "value":"1975-08-33",
+}
 
 
 

@@ -18,3 +18,9 @@ export async function getAllSesiuni() {
     attributes: ["id", "date", "time"],
   });
 }
+export async function editOneSesiune(sesiuneId, value) {
+  const sesiuniRow = await Sesiuni.findByPk(sesiuneId);
+  sesiuniRow.date = value;
+
+  await sesiuniRow.save();
+}
