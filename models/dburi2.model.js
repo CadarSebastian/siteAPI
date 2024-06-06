@@ -1,6 +1,6 @@
 import { sequelize } from "../db.js";
 import { DataTypes } from "sequelize";
-import { Dburi3 } from "./dburi3.model.js";
+// import { Dburi3 } from "./dburi3.model.js";
 
 export const Dburi2 = sequelize.define(
   "Dburi2",
@@ -16,6 +16,3 @@ export const Dburi2 = sequelize.define(
     paranoid: false,
   }
 );
-
-Dburi3.hasOne(Dburi2);
-Dburi2.hasOne(Dburi3);
