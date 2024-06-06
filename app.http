@@ -1,7 +1,13 @@
 @mainUrl = http://localhost:3000
 ###
 #
-GET {{mainUrl}}/ruta
+GET {{mainUrl}}/dburi1
+###
+#
+GET {{mainUrl}}/dburi2
+###
+#
+GET {{mainUrl}}/dburi3
 ###
 #
 POST http://localhost:3000/sesiuni
