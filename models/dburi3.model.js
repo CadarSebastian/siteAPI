@@ -17,5 +17,5 @@ export const Dburi3 = sequelize.define(
   }
 );
 
-Dburi2.hasMany(Dburi3);
-Dburi3.hasMany(Dburi2);
+Dburi2.belongsToMany(Dburi3);
+Dburi3.belongsToMany(Dburi2);

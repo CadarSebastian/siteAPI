@@ -18,4 +18,4 @@ export const Dburi1 = sequelize.define(
 );
 
 Roboti.hasOne(Dburi1);
-Dburi1.hasOne(Roboti);
+Dburi1.belongsTo(Roboti);

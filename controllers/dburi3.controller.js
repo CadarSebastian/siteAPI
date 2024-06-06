@@ -25,7 +25,7 @@ export async function deleteDb3(req, res) {
   const { db3Id } = req.body;
 
   if (!db3Id) {
-    throw new Error("TaskId is required");
+    throw new Error("Db3Id is required");
   }
 
   await deleteOneDb3(db3Id);
