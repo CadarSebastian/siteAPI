@@ -30,6 +30,9 @@ app.use("/copii", copiiRoutes);
 import robotiRoutes from "./routes/roboti.routes.js";
 app.use("/roboti", robotiRoutes);
 
+import dburi1Routes from "./routes/dburi1.routes.js";
+app.use("/dburi1", dburi1Routes);
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
 });

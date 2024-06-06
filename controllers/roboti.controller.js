@@ -1,4 +1,9 @@
-import { createRoboti } from "../services/roboti.services.js";
+import {
+  createRoboti,
+  deleteOneRobot,
+  getAllRoboti,
+  editOneRobot,
+} from "../services/roboti.services.js";
 
 export async function addNewRoboti(req, res) {
   // LUAREA DATELOR
