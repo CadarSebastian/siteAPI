@@ -20,13 +20,17 @@ app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Credentials", true);
   next();
 });
+
 import sesiuniRoutes from "./routes/sesiuni.routes.js";
 app.use("/sesiuni", sesiuniRoutes);
 
-app.get("/ruta", (req, res) => {
-  res.send("Hello from API hehehehhehe");
-});
+import robotiRoutes from "./routes/roboti.routes.js";
+app.use("/roboti", robotiRoutes);
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}/`);
 });
+
+// app.get("/ruta", (req, res) => {
+//   res.send("Hello from API hehehehhehe");
+// });
