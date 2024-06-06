@@ -24,6 +24,9 @@ app.use(function (req, res, next) {
 import sesiuniRoutes from "./routes/sesiuni.routes.js";
 app.use("/sesiuni", sesiuniRoutes);
 
+import copiiRoutes from "./routes/copii.routes.js";
+app.use("/copii", copiiRoutes);
+
 import robotiRoutes from "./routes/roboti.routes.js";
 app.use("/roboti", robotiRoutes);
 
