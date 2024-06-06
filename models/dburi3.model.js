@@ -1,11 +1,11 @@
 import { sequelize } from "../db.js";
 import { DataTypes } from "sequelize";
-import { Dburi3 } from "./dburi3.model.js";
+import { Dburi2 } from "./dburi2.model.js";
 
-export const Dburi2 = sequelize.define(
-  "Dburi2",
+export const Dburi3 = sequelize.define(
+  "Dburi3",
   {
-    info2: {
+    info3: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -17,5 +17,5 @@ export const Dburi2 = sequelize.define(
   }
 );
 
-Dburi3.hasOne(Dburi2);
-Dburi2.hasOne(Dburi3);
+Dburi2.hasMany(Dburi3);
+Dburi3.hasMany(Dburi2);
