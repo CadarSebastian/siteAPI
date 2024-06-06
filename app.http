@@ -10,6 +10,8 @@ Content-Type: application/json
 {
     "date":"1975-08-19",
     "time":"12:00"
+   
+    
 }
 ###
 #
@@ -17,7 +19,7 @@ DELETE http://localhost:3000/sesiuni
 Content-Type: application/json
 
 {
-    "sesiuneId":1
+    "sesiuneId":2
 }
 ###
 #
@@ -31,6 +33,16 @@ Content-Type: application/json
 {
     "sesiuneId":1,
     "value":"1975-08-33",
+}
+###
+#
+POST http://localhost:3000/copii
+Content-Type: application/json
+
+{
+    "name": "Ionut",
+    "number":"939393939",
+    "SesiuniId":2
 }
 
 

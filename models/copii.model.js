@@ -1,6 +1,6 @@
 import { sequelize } from "../db.js";
 import { DataTypes } from "sequelize";
-import { Sesiuni } from "./sesiuni.model.js";
+// import { Sesiuni } from "./sesiuni.model.js";
 
 export const Copii = sequelize.define(
   "Copii",

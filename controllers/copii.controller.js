@@ -7,7 +7,7 @@ import {
 
 export async function addNewCopii(req, res) {
   // LUAREA DATELOR
-  const { name, number } = req.body;
+  const { name, number, SesiuniId } = req.body;
 
   // VERIFICARI
   if (!name) {
@@ -15,7 +15,7 @@ export async function addNewCopii(req, res) {
   }
 
   // LOGICA => SERVICE + REPOSITORTY
-  const copiiId = await createCopii(name, number);
+  const copiiId = await createCopii(name, number, SesiuniId);
 
   // RASPUNS
   res.send(JSON.stringify({ id: copiiId }));

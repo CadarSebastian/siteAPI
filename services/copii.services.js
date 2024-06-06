@@ -1,8 +1,8 @@
 import { Copii } from "../models/copii.model.js";
 
-export async function createCopii(name, number) {
+export async function createCopii(name, number, SesiuniId) {
   // LOGICA => SERVICE + REPOSITORTY
-  const copiiRow = await Copii.create({ name, number });
+  const copiiRow = await Copii.create({ name, number, SesiuniId });
 
   return copiiRow.dataValues.id;
 }
