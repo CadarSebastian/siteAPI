@@ -1,17 +1,28 @@
 import { Copii } from "../models/copii.model.js";
 
 export async function createCopii(name, number, SesiuniId) {
-  // LOGICA => SERVICE + REPOSITORTY
-  const copiiRow = await Copii.create({ name, number, SesiuniId });
-
-  return copiiRow.dataValues.id;
+  const transaction = await sequelize.transaction();
+  try {
+    const copiiRow = await Copii.create({ name, number, SesiuniId });
+    await transaction.commit();
+    return copiiRow.dataValues.id;
+  } catch (error) {
+    await transaction.rollback();
+  }
+  return "error";
 }
 export async function deleteOneCopil(copilId) {
-  await Copii.destroy({
-    where: {
-      id: copilId,
-    },
-  });
+  const transaction = await sequelize.transaction();
+  try {
+    await Copii.destroy({
+      where: {
+        id: copilId,
+      },
+    });
+    await transaction.commit();
+  } catch (error) {
+    await transaction.rollback();
+  }
 }
 export async function getAllCopii() {
   return await Copii.findAll({
@@ -19,8 +30,14 @@ export async function getAllCopii() {
   });
 }
 export async function editOneCopil(copilId, value) {
-  const copiiRow = await Roboti.findByPk(copilId);
-  copiiRow.date = value;
+  const transaction = await sequelize.transaction();
+  try {
+    const copiiRow = await Roboti.findByPk(copilId);
+    copiiRow.date = value;
 
-  await copiiRow.save();
+    await copiiRow.save();
+  } catch (error) {
+    await transaction.rollback();
+  }
+  return "error";
 }

@@ -10,14 +10,21 @@ GET {{mainUrl}}/dburi2
 GET {{mainUrl}}/dburi3
 ###
 #
+GET {{mainUrl}}/copii
+###
+#
+GET {{mainUrl}}/sesiuni
+
+
+
+###
+#
 POST http://localhost:3000/sesiuni
 Content-Type: application/json
 
 {
-    "date":"1975-08-19",
-    "time":"12:00"
-   
-    
+    "date":"1975-08-30",
+    "time":"15:00" 
 }
 ###
 #
@@ -29,10 +36,7 @@ Content-Type: application/json
 }
 ###
 #
-GET http://localhost:3000/sesiuni
-Content-Type: application/json
-###
-#
+
 PUT  http://localhost:3000/sesiuni
 Content-Type: application/json
 

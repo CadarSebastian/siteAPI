@@ -1,17 +1,28 @@
 import { Sesiuni } from "../models/sesiuni.model.js";
 
 export async function createSesiuni(date, time) {
-  // LOGICA => SERVICE + REPOSITORTY
-  const sesiuniRow = await Sesiuni.create({ date, time });
-
-  return sesiuniRow.dataValues.id;
+  const transaction = await sequelize.transaction();
+  try {
+    const sesiuniRow = await Sesiuni.create({ date, time });
+    await transaction.commit();
+    return sesiuniRow.dataValues.id;
+  } catch (error) {
+    await transaction.rollback();
+  }
 }
+return "error";
 export async function deleteOneSesiune(sesiuneId) {
-  await Sesiuni.destroy({
-    where: {
-      id: sesiuneId,
-    },
-  });
+  const transaction = await sequelize.transaction();
+  try {
+    await Sesiuni.destroy({
+      where: {
+        id: sesiuneId,
+      },
+    });
+    await transaction.commit();
+  } catch (error) {
+    await transaction.rollback();
+  }
 }
 export async function getAllSesiuni() {
   return await Sesiuni.findAll({

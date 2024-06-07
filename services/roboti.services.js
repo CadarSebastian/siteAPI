@@ -1,17 +1,28 @@
 import { Roboti } from "../models/roboti.model.js";
 
 export async function createRoboti(name) {
-  // LOGICA => SERVICE + REPOSITORTY
-  const robotiRow = await Roboti.create({ name });
-
-  return robotiRow.dataValues.id;
+  const transaction = await sequelize.transaction();
+  try {
+    const robotiRow = await Roboti.create({ name });
+    await transaction.commit();
+    return robotiRow.dataValues.id;
+  } catch (error) {
+    await transaction.rollback();
+  }
+  return "error";
 }
 export async function deleteOneRobot(robotId) {
-  await Roboti.destroy({
-    where: {
-      id: robotId,
-    },
-  });
+  const transaction = await sequelize.transaction();
+  try {
+    await Roboti.destroy({
+      where: {
+        id: robotId,
+      },
+    });
+    await transaction.commit();
+  } catch (error) {
+    await transaction.rollback();
+  }
 }
 export async function getAllRoboti() {
   return await Roboti.findAll({
