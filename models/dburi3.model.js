@@ -1,6 +1,6 @@
 import { sequelize } from "../db.js";
 import { DataTypes } from "sequelize";
-import { Dburi2 } from "./dburi2.model.js";
+// import { Dburi2 } from "./dburi2.model.js";
 
 export const Dburi3 = sequelize.define(
   "Dburi3",

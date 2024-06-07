@@ -7,7 +7,7 @@ import {
 
 export async function addNewDburi1(req, res) {
   // LUAREA DATELOR
-  const { info1 } = req.body;
+  const { info1, RobotiId } = req.body;
 
   // VERIFICARI
   if (!info1) {
@@ -15,7 +15,7 @@ export async function addNewDburi1(req, res) {
   }
 
   // LOGICA => SERVICE + REPOSITORTY
-  const dburi1Id = await createDburi1(info1);
+  const dburi1Id = await createDburi1(info1, RobotiId);
 
   // RASPUNS
   res.send(JSON.stringify({ id: dburi1Id }));

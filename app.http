@@ -42,8 +42,26 @@ POST http://localhost:3000/dburi1
 Content-Type: application/json
 
 {
-    "info1":"Robot R2D2 Starwars",
-    "RobotId":1
+    "info1":"Iron-Man Gauntlet",
+    "RobotiId":2
+}
+
+###
+#
+POST http://localhost:3000/dburi2
+Content-Type: application/json
+
+{
+    "info2":"RandomInfo"
+}
+
+###
+#
+POST http://localhost:3000/dburi3
+Content-Type: application/json
+
+{
+    "info3":"RandomInfo"
 }
 ###
 #
@@ -51,17 +69,66 @@ DELETE http://localhost:3000/sesiuni
 Content-Type: application/json
 
 {
-    "sesiuneId":3
+    "sesiuneId":8
 }
+
 ###
 #
+DELETE http://localhost:3000/copii
+Content-Type: application/json
 
+{
+    "copilId":1
+}
+
+###
+#
+DELETE http://localhost:3000/roboti
+Content-Type: application/json
+
+{
+    "robotId":1
+}
+
+###
+#
+DELETE http://localhost:3000/dburi1
+Content-Type: application/json
+
+{
+    "db1Id":1
+}
+
+###
+#
+DELETE http://localhost:3000/dburi2
+Content-Type: application/json
+
+{
+    "db2Id":1
+}
+
+###
+#
+DELETE http://localhost:3000/dburi3
+Content-Type: application/json
+
+{
+    "db3Id":1
+}
+
+
+
+###
+#
 PUT  http://localhost:3000/sesiuni
 Content-Type: application/json
 
 {
-    "sesiuneId":1,
-    "value":"1975-08-33",
+    "Id":3,
+    "value.date":"1975-08-33",
+    "value.time":"12:34"
+    
 }
 ###
 #

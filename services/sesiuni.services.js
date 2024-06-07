@@ -33,7 +33,7 @@ export async function getAllSesiuni() {
 }
 export async function editOneSesiune(sesiuneId, value) {
   const sesiuniRow = await Sesiuni.findByPk(sesiuneId);
-  sesiuniRow.date = value;
+  sesiuniRow.date = value.date;
 
   await sesiuniRow.save();
 }
