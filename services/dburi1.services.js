@@ -1,9 +1,10 @@
 import { Dburi1 } from "../models/dburi1.model.js";
+import { sequelize } from "../db.js";
 
-export async function createDburi1(info1) {
+export async function createDburi1(info1, RobotiId) {
   const transaction = await sequelize.transaction();
   try {
-    const dburi1Row = await Dburi1.create({ info1 });
+    const dburi1Row = await Dburi1.create({ info1, RobotiId });
     await transaction.commit();
     return dburi1Row.dataValues.id;
   } catch (error) {

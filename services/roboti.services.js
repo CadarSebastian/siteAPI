@@ -1,4 +1,5 @@
 import { Roboti } from "../models/roboti.model.js";
+import { sequelize } from "../db.js";
 
 export async function createRoboti(name) {
   const transaction = await sequelize.transaction();

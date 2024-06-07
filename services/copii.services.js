@@ -1,4 +1,5 @@
 import { Copii } from "../models/copii.model.js";
+import { sequelize } from "../db.js";
 
 export async function createCopii(name, number, SesiuniId) {
   const transaction = await sequelize.transaction();

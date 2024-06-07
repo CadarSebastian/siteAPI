@@ -1,4 +1,5 @@
 import { Sesiuni } from "../models/sesiuni.model.js";
+import { sequelize } from "../db.js";
 
 export async function createSesiuni(date, time) {
   const transaction = await sequelize.transaction();
@@ -9,8 +10,9 @@ export async function createSesiuni(date, time) {
   } catch (error) {
     await transaction.rollback();
   }
+  return "error";
 }
-return "error";
+
 export async function deleteOneSesiune(sesiuneId) {
   const transaction = await sequelize.transaction();
   try {

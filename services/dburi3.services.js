@@ -1,4 +1,5 @@
 import { Dburi3 } from "../models/dburi3.model.js";
+import { sequelize } from "../db.js";
 
 export async function createDburi3(info3) {
   const transaction = await sequelize.transaction();
